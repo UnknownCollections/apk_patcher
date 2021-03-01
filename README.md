@@ -2,6 +2,11 @@
 
 APKPatcher is a Python framework for applying patches to APKs in a reproducable way.
 
+## Requirements
+
+* Python 3.8 or newer
+* Up to date `pip`
+
 ## Installation
 
 Download repo and unpack to a directory. Install requirements by running:

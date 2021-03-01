@@ -41,7 +41,7 @@ class Archive:
         if self.type == Archive.Type.ZIP:
             return zipfile.ZipFile(self.file_path, 'r')
         elif self.type == Archive.Type.TAR:
-            return tarfile.TarFile(self.file_path, 'r')
+            return tarfile.TarFile.open(self.file_path, 'r:*')
 
     def get_members(self, archive: ArchiveType) -> List[ArchiveMemberType]:
         if self.type == Archive.Type.ZIP:
@@ -96,7 +96,7 @@ class Archive:
                 if not on_progress(progress_user_var, progress):
                     raise ProgressCancelled()
 
-            inital_subfolder = members[0].filename if self.is_archive_wrapped(self.get_names(f)) else None
+            inital_subfolder = self.get_member_filename(members[0]) if self.is_archive_wrapped(self.get_names(f)) else None
 
             for member in members:
                 if self.is_member_dir(member):
@@ -108,7 +108,10 @@ class Archive:
                 extract_path = os.path.join(output_folder_path, extract_file_path)
                 os.makedirs(os.path.dirname(extract_path), exist_ok=True)
 
-                with self.open_member(f, member) as source, open(extract_path, 'wb') as target:
+                source = self.open_member(f, member)
+                if source is None:
+                    continue
+                with open(extract_path, 'wb') as target:
                     shutil.copyfileobj(source, target)
 
                 if on_progress is not None:
