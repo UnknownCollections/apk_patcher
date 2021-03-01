@@ -2,6 +2,29 @@
 
 APKPatcher is a Python framework for applying patches to APKs in a reproducable way.
 
+- [APKPatcher](#apkpatcher)
+  * [Requirements](#requirements)
+  * [Installation](#installation)
+  * [Simple Example](#simple-example)
+    + [Demo](#demo)
+    + [Getting APK Info](#getting-apk-info)
+    + [Downloading an APK](#downloading-an-apk)
+    + [Unpacking APK](#unpacking-apk)
+    + [Applying Patches](#applying-patches)
+  * [Tools Required](#tools-required)
+  * [Configuration](#configuration)
+  * [Documentation](#documentation)
+    + [Custom Patches](#custom-patches)
+      - [Built-in Patch Subclasses](#built-in-patch-subclasses)
+        * [SmaliPatch](#smalipatch)
+    + [Custom Tool](#custom-tool)
+      - [Built-in Tool Subclasses](#built-in-tool-subclasses)
+        * [Downloader](#downloader)
+        * [GoogleSourceDownloader](#googlesourcedownloader)
+        * [APKProvider](#apkprovider)
+  * [License](#license)
+  * [OSS Attribution](#oss-attribution)
+
 ## Requirements
 
 * Python 3.8 or newer
