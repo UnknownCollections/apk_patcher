@@ -1,0 +1,5 @@
+lxml~=4.6.2
+requests~=2.25.1
+cryptography~=3.4.6
+tqdm~=4.57.0
+python-dotenv~=0.15.0

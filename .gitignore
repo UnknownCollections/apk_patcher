@@ -1,0 +1,8 @@
+venv
+dist/
+.env
+.idea/
+__pycache__/
+/main.py
+/apk_patcher/patches/**/*
+!/apk_patcher/patches/*
